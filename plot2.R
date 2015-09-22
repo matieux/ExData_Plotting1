@@ -14,17 +14,20 @@ data <- read.csv(dataFile, sep=";", header = TRUE, row.names = NULL) %>%
 	mutate(dateTime = paste(date, time)) %>%
 	arrange(dateTime)
 	
-	x <- lapply(data$dateTime, function(x) {
-		as.numeric(strptime(x, "%d/%m/%Y %H:%M:%S") ) } )	
-	y <- data$globalActivePower
-	# Need to add a dummy measure to display 'Sat' on axis
-	x[[2881]] <- x[[2880]] + 60; y[[2881]] <- 0
-	ticks <- c(x[[1]], x[[1441]], x[[2881]])
-	axisX <- lapply(
-		ticks,
-		function(x) { format(strptime(x, "%s"), "%a") } )
+x <- lapply(data$dateTime, function(x) {
+	as.numeric(strptime(x, "%d/%m/%Y %H:%M:%S") ) } )	
+y <- data$globalActivePower
+# Need to add a dummy measure to display 'Sat' on axis
+x[[2881]] <- x[[2880]] + 60; y[[2881]] <- 0
+ticks <- c(x[[1]], x[[1441]], x[[2881]])
+axisX <- lapply(
+	ticks,
+	function(x) { format(strptime(x, "%s"), "%a") } )
 
-	plot(x, y, type = "l", xaxt = "n",
-		 ylab = "Global Active Power (kilowatts)", xlab = "")
-	axis(side = 1, at = ticks, labels = axisX)
+plot(x, y, type = "l", xaxt = "n",
+	 ylab = "Global Active Power (kilowatts)", xlab = "")
+axis(side = 1, at = ticks, labels = axisX)
+
+dev.copy(png, file="plot2.png")
+dev.off()
 	
