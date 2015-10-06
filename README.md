@@ -100,7 +100,7 @@ The four plots that you will need to construct are shown below.
 
 ### Plot 2
 
-![plot plot2](figure/plot2) 
+![plot plot2](figure/plot2.png) 
 
 
 ### Plot 3
