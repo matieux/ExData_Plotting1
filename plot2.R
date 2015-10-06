@@ -28,6 +28,6 @@ plot(x, y, type = "l", xaxt = "n",
 	 ylab = "Global Active Power (kilowatts)", xlab = "")
 axis(side = 1, at = ticks, labels = axisX)
 
-dev.copy(png, file="plot2.png")
+dev.copy(png, file="figure/plot2.png")
 dev.off()
 	

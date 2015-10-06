@@ -16,5 +16,5 @@ hist(data$globalActivePower,
 	 main = "Global Active Power", 
 	 col = "red")
 
-dev.copy(png, file="plot1.png")
+dev.copy(png, file="figure/plot1.png")
 dev.off()
