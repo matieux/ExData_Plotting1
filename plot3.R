@@ -36,8 +36,9 @@ plot(x, y1, type = "l", xaxt = "n",
 axis(side = 1, at = ticks, labels = axisX)
 lines(x, y2, col = "red")
 lines(x, y3, col = "blue")
+# Ugly hack for the legend right margin issue = adding spaces to labels
 legend("topright", 
-	   legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+	   legend = c("Sub_metering_1  ", "Sub_metering_2  ", "Sub_metering_3  "),
 	   lty =1, col = c("black", "red", "blue"))
 
 dev.copy(png, file="figure/plot3.png")
